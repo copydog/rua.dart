@@ -1,0 +1,26 @@
+# Read about `build.yaml` at https://pub.dartlang.org/packages/build_config
+targets:
+  $default:
+    builders:
+      rua_generator|pre_builder:
+        enabled: true
+        generate_for:
+          exclude: ['**.g.dart', 'lib/generated/**']
+      rua_generator|post_builder:
+        enabled: true
+        generate_for:
+          exclude: ['**.g.dart', 'lib/generated/**']
+builders:
+  pre_builder:
+    import: 'package:rua_generator/src/builder.dart'
+    builder_factories: ['preBuilder']
+    build_extensions: { '.dart': ['.g.dart'] }
+    auto_apply: root_package
+    runs_before: ['rua_generator|post_builder']
+    build_to: source
+  post_builder:
+    import: 'package:rua_generator/src/builder.dart'
+    builder_factories: ['postBuilder']
+    build_extensions: { '.dart': ['.g.part'] }
+    auto_apply: dependents
+    build_to: cache

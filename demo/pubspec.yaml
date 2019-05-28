@@ -1,0 +1,19 @@
+name: demo
+description: A starting point for Dart libraries or applications.
+# version: 1.0.0
+# homepage: https://www.example.com
+# author: shallow <email@example.com>
+
+environment:
+  sdk: '>=2.0.0 <3.0.0'
+
+dependencies:
+  rua:
+    path: ../rua
+#  path: ^1.4.1
+
+dev_dependencies:
+  test: ^1.0.0
+  build_runner: any
+  rua_generator:
+    path: ../rua_generator
