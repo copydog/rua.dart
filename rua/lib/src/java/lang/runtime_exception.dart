@@ -1,4 +1,4 @@
-import 'package:rua/src/lang/enhanced_exception.dart';
+import 'package:rua/src/java/lang/enhanced_exception.dart';
 
 class RuntimeException extends EnhancedException {
   String message;
